@@ -4,6 +4,8 @@ plugins {
     id "io.spinnaker.plugin.service-extension"
     id "kotlin"
     id "groovy"
+    id "jacoco"
+    id "org.sonarqube" version "4.4.1.3373"
 }
 
 compileGroovy {
@@ -99,4 +101,10 @@ dependencies {
 
 tasks.withType(Test) {
     useJUnitPlatform()
+}
+
+jacocoTestReport {
+    reports {
+        xml.required = true
+    }
 }
