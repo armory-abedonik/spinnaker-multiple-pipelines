@@ -23,9 +23,9 @@ function CancelAllModal(props: any) {
         setDisabled(true);
         for (const execution of props.allRunning) {
             window.spinnaker.executionService.cancelExecution(execution.application, execution.id)
-                .then(response => {
+                .then((response: any) => {
                     return response;
-                }).catch( e => {
+                }).catch( (e: any) => {
                     return e;
                     //it always goes to catch even when cancel its executed correctly
             });
